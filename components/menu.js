@@ -130,7 +130,7 @@ f_navegation.menu = function (containerId, menuId, toggleButtonId) {
                 //Crear toggle button para submenus
                 var expandSubmenu = document.createElement('div');
                 expandSubmenu.classList.add('expand_submenu');
-                menuItem.appendChild(expandSubmenu);
+                menuItem.prepend(expandSubmenu);
             }
         }
     } else {
