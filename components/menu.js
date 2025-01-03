@@ -11,15 +11,16 @@ var f_navegation = {};
  * Función para generar un menu.
  * Se agregara toda la funcionalidad no asi los estilos.
  *
- * @param String Id del contenedor de menu
+ * @param String Id del contenedor de menu : valores (*|"igual al "id del menu" si no se cuenta con un contenedor)
  * @param String Id del menu
- * @param String Id del botón mostrar u ocultar menu
+ * @param String Id del botón para mostrar u ocultar menu : valores (*|"string vacio" si el menu simpre sera visible)
+ * @param String Cerrar automaticamente el submenu al abrir otro : valores (yes|no)
  *            
  */
-f_navegation.menu = function (containerId, menuId, toggleButtonId) {
+f_navegation.menu = function (containerId, menuId, toggleButtonId = "", closeSubmenuOnBlur = "yes") {
     var container = document.getElementById(containerId);
     var menu = document.getElementById(menuId);
-    var toggleButton = document.getElementById(toggleButtonId);
+    var toggleButton = (toggleButtonId != "" ) ? document.getElementById(toggleButtonId) : "";
 
     function toggleContainerVisibility(e) {
 		e.stopPropagation();
@@ -83,7 +84,8 @@ f_navegation.menu = function (containerId, menuId, toggleButtonId) {
         if (e.target.classList.contains('parent_submenu')) {
             e.preventDefault();
 
-            if(e.target.parentNode.parentNode.classList.contains('f_container-menu')){
+			// Cerrar submenu cuando se abra otro (los submenus que se cierran son los hijos director del menu principal)
+            if(closeSubmenuOnBlur != "no" && e.target.parentNode.parentNode.classList.contains('f_container-menu')){
                 closeSubmenu(e);
             }
 
