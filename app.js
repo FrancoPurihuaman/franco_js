@@ -11,8 +11,8 @@ import f_image from "./components/image";
  * @param {*}
  */
 (function (window) {
-    const _init = (containerId, menuId, toggleButtonId) => {
-        f_navegation.menu(containerId, menuId, toggleButtonId);
+    const _init = (containerId, menuId, toggleButtonId = "", closeSubmenuOnBlur = "yes") => {
+        f_navegation.menu(containerId, menuId, toggleButtonId, closeSubmenuOnBlur);
     }
     window.f_menu = {
         init: _init
