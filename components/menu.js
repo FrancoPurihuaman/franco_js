@@ -103,7 +103,7 @@ f_navegation.menu = function (containerId, menuId, toggleButtonId = "", closeSub
 		
         if (toggleButton) {
             toggleButton.addEventListener('click', toggleContainerVisibility);
-        } else {
+        } else if(toggleButton != "") {
             console.error('Not found ' + toggleButtonId + ' Id');
         }
     } else {
