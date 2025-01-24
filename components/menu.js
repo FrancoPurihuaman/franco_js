@@ -17,7 +17,7 @@ var f_navegation = {};
  * @param String Cerrar automaticamente el submenu al abrir otro : valores (yes|no)
  *            
  */
-f_navegation.menu = function (containerId, menuId, toggleButtonId = "", closeSubmenuOnBlur = "yes") {
+f_navegation.menu = ({containerId, menuId, toggleButtonId = "", closeSubmenuOnBlur = "yes"}) => {
     var container = document.getElementById(containerId);
     var menu = document.getElementById(menuId);
     var toggleButton = (toggleButtonId != "" ) ? document.getElementById(toggleButtonId) : "";
@@ -93,7 +93,9 @@ f_navegation.menu = function (containerId, menuId, toggleButtonId = "", closeSub
             e.target.querySelector('ul').classList.toggle('show_submenu');
 	
 			// Evento para ocultar submenu cuando el menu pierda el foco
-			window.addEventListener("click", closeSubmenuForOutFocus);
+			if(closeSubmenuOnBlur != "no"){
+                window.addEventListener("click", closeSubmenuForOutFocus);
+            }
         }
     }
 
