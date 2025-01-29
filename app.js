@@ -1,6 +1,6 @@
 import f_navegation from "./components/menu";
 import f_modal from "./components/modal";
-import f_alert from "./components/alert";
+import f_message from "./components/message";
 import f_table from "./components/table";
 import f_image from "./components/image";
 
@@ -36,18 +36,18 @@ import f_image from "./components/image";
 
 
 /**
- * Agregando componente mensaje de alerta al objeto window
+ * Agregando componente mensaje al objeto window
  *
  * @param {*}
  */
  (function (window) {
     const _generate = (params) => {
-        f_alert.generate(params);
+        f_message.generate(params);
     }
 	const _convert = (params) => {
-        f_alert.convert(params);
+        f_message.convert(params);
     }
-    window.f_alert = {
+    window.f_message = {
         generate: _generate,
 		convert: _convert
     }
