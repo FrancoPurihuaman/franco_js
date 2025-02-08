@@ -18,9 +18,9 @@ const f_navegation = {};
  *            
  */
 f_navegation.menu = ({containerId, menuId, toggleButtonId = "", closeSubmenuOnBlur = "yes"}) => {
-    var container = document.getElementById(containerId);
-    var menu = document.getElementById(menuId);
-    var toggleButton = (toggleButtonId != "" ) ? document.getElementById(toggleButtonId) : "";
+    let container = document.getElementById(containerId);
+    let menu = document.getElementById(menuId);
+    let toggleButton = (toggleButtonId != "" ) ? document.getElementById(toggleButtonId) : "";
 
     function toggleContainerVisibility(e) {
 		e.stopPropagation();
@@ -44,11 +44,11 @@ f_navegation.menu = ({containerId, menuId, toggleButtonId = "", closeSubmenuOnBl
 	
 
     function closeSubmenu(e){
-        var menuItems = menu.querySelectorAll("li.parent_submenu");
-        var menuItemsLength = menuItems.length;
+        let menuItems = menu.querySelectorAll("li.parent_submenu");
+        let menuItemsLength = menuItems.length;
 
         while(menuItemsLength--){
-            var menuItem = menuItems[menuItemsLength];
+            let menuItem = menuItems[menuItemsLength];
             
             if(menuItem.dataset.itemNumber != e.target.dataset.itemNumber){
                 menuItem.classList.remove("active");
@@ -63,11 +63,11 @@ f_navegation.menu = ({containerId, menuId, toggleButtonId = "", closeSubmenuOnBl
 	function closeSubmenuForOutFocus(e){
 		
 		if(!container.contains(e.target)){
-			var menuItems = menu.querySelectorAll("li.parent_submenu");
-	        var menuItemsLength = menuItems.length;
+			let menuItems = menu.querySelectorAll("li.parent_submenu");
+	        let menuItemsLength = menuItems.length;
 	
 	        while(menuItemsLength--){
-	            var menuItem = menuItems[menuItemsLength];
+	            let menuItem = menuItems[menuItemsLength];
 	            
 	            menuItem.classList.remove("active");
 	
@@ -114,17 +114,17 @@ f_navegation.menu = ({containerId, menuId, toggleButtonId = "", closeSubmenuOnBl
 
     // Establecer propiedades de menu
     if (menu) {
-        var menuItems = menu.querySelectorAll('li');
-        var menuItemsLength = menuItems.length;
+        let menuItems = menu.querySelectorAll('li');
+        let menuItemsLength = menuItems.length;
 
         // show submenus
         menu.addEventListener('click', function (e) {
             showSubMenu(e);
         });
 
-        var count = 0;
+        let count = 0;
         while (menuItemsLength--) {
-            var menuItem = menuItems[menuItemsLength];
+            let menuItem = menuItems[menuItemsLength];
             menuItem.setAttribute('data-item-number', count++);
 
             // Detectar si un item es padre de un submenu
@@ -132,7 +132,7 @@ f_navegation.menu = ({containerId, menuId, toggleButtonId = "", closeSubmenuOnBl
                 menuItem.classList.add('parent_submenu');
 
                 //Crear toggle button para submenus
-                var expandSubmenu = document.createElement('div');
+                let expandSubmenu = document.createElement('div');
                 expandSubmenu.classList.add('expand_submenu');
                 menuItem.prepend(expandSubmenu);
             }
