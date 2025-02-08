@@ -5,7 +5,7 @@
  */
 
 
-var f_navegation = {};
+const f_navegation = {};
 
 /**
  * Función para generar un menu.
