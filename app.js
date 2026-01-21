@@ -82,3 +82,18 @@ import f_image from "./components/image";
         show: _show
     }
 })(window);
+
+
+/**
+ * Agregando componente para manipular checkbox al objeto window
+ *
+ * @param {*}
+ */
+ (function (window) {
+    const _checkAll = (params) => {
+        f_checkbox.checkAll(params);
+    }
+    window.f_checkbox = {
+        checkAll: _checkAll
+    }
+})(window);
